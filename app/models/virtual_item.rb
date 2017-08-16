@@ -1,0 +1,2 @@
+class VirtualItem < ApplicationRecord
+end
