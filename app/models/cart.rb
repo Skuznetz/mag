@@ -13,4 +13,8 @@ class Cart < ApplicationRecord
       positions.create(item: i, quantity: 1)
     end
   end
+
+  def remove_position(position_to_remove_id)
+    positions.where(item_id: position_to_remove_id).first.try(:destroy)
+  end
 end
