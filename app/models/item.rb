@@ -8,6 +8,6 @@ class Item < ApplicationRecord
   has_many :positions
   has_many :carts, through: :positions, source: :container,
   source_type: "Cart"
-has_many :orders, through: :positions, source: :container,
-source_type: "Order"
+  has_many :orders, through: :positions, source: :container,
+  source_type: "Order"
 end
