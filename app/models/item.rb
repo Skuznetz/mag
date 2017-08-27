@@ -4,4 +4,5 @@ class Item < ApplicationRecord
   presence: true
   has_many :positions
   has_many :carts, through: :positions
+  has_many :images, as: :imageable
 end
