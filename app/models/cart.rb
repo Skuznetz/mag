@@ -5,6 +5,8 @@ class Cart < ApplicationRecord
   has_and_belongs_to_many :items
   has_many :positions
   has_many :items, through: :positions
+  has_many :positions, as: :container
+has_many :items, through: :positions
 
   def add_item(i)
     if items.include?(i)
