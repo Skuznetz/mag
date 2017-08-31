@@ -8,12 +8,10 @@ class Item < ApplicationRecord
   has_many  :carts, through: :positions, source: :container,source_type: "Cart"
   has_many  :orders, through: :positions, source: :container,source_type: "Order"
 
-  after_destroy :decrement_category_counter
-private
-def increment_category_counter
-  category.inc!(:items_count)
+  after_create do
+category.inc!(:items_count)
 end
-def decrement_category_counter
-  category.inc!(:items_count, -1)
+after_destroy do
+category.inc!(:items_count, -1)
 end
 end
