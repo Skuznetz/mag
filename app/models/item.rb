@@ -11,9 +11,9 @@ class Item < ApplicationRecord
   after_destroy :decrement_category_counter
 private
 def increment_category_counter
-category.inc!(:items_count)
+  category.inc!(:items_count)
 end
 def decrement_category_counter
-category.inc!(:items_count, -1)
+  category.inc!(:items_count, -1)
 end
 end
