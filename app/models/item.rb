@@ -9,9 +9,9 @@ class Item < ApplicationRecord
   has_many  :orders, through: :positions, source: :container,source_type: "Order"
 
   after_create do
-category.inc!(:items_count)
-end
-after_destroy do
-category.inc!(:items_count, -1)
-end
+    category.inc!(:items_count)
+  end
+  after_destroy do
+    category.inc!(:items_count, -1)
+  end
 end
