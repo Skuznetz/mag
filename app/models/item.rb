@@ -14,4 +14,6 @@ class Item < ApplicationRecord
   after_destroy do
     category.inc!(:items_count, -1)
   end
+  Item.where("price > 100").order("created_at DESC").paginate(per_page:
+10, page: 1)
 end
